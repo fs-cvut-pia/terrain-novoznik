@@ -3,8 +3,9 @@
 #include <vector>
 #include <iostream>
 #include <string>
-
 // Include files of your path classes will need to be added here
+#include "Silnice.h"
+#include "Letadlo.h"
 
 Point read_coordinates(int argc, char *argv[], int i_option) {
     Point p;
@@ -35,6 +36,8 @@ int main(int argc, char *argv[]) {
 
     std::vector<Path*> paths = { //new YourPath(m,"MyPathName",start,finish), ...
         // Here add the list of dynamically created classes with path finding algorithms
+        new Silnice(m, "SilnicePath", start, finish),
+        new Letadlo(m, "LetadloPath", start, finish)
     };
 
     for (auto& p : paths) {
